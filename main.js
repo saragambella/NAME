@@ -21,7 +21,7 @@ const extraColumns = [
 
 const allColumns = [...textColumns, ...extraColumns];
 
-const themeOptions = ["Love", "War", "Identity", "Memory", "Exile"];
+const themeOptions = ["Crisis", "Memory", "Migration", "Border", "Affect"];
 const genreOptions = ["Novel", "Poetry", "Essay", "Drama", "Magical Realism"];
 
 let originalData = [];
