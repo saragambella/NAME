@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NAME</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <h1>NAME</h1>
+      <p>Catalogo principale</p>
+    </header>
+
+    <section class="filters-section">
+      <div class="filters-header">
+        <h2>Filtri</h2>
+        <div class="filters-actions">
+          <span id="resultsCount">0 risultati</span>
+          <button id="resetFilters" type="button">Reset filtri</button>
+        </div>
+      </div>
+
+      <div class="filters-grid">
+        <div class="filter-group">
+          <label for="title">Title</label>
+          <input type="text" id="title" placeholder="Cerca per title">
+        </div>
+
+        <div class="filter-group">
+          <label for="author">Author</label>
+          <input type="text" id="author" placeholder="Cerca per author">
+        </div>
+
+        <div class="filter-group">
+          <label for="year">Year</label>
+          <input type="text" id="year" placeholder="Cerca per year">
+        </div>
+
+        <div class="filter-group">
+          <label for="publisher">Publisher</label>
+          <input type="text" id="publisher" placeholder="Cerca per publisher">
+        </div>
+
+        <div class="filter-group">
+          <label for="country">Country</label>
+          <input type="text" id="country" placeholder="Cerca per country">
+        </div>
+
+        <div class="filter-group">
+          <label for="language of publication">Language of publication</label>
+          <input type="text" id="language of publication" placeholder="Cerca per language of publication">
+        </div>
+
+        <div class="filter-group">
+          <label for="publications in Catalan">Publications in Catalan</label>
+          <input type="text" id="publications in Catalan" placeholder="Cerca per publications in Catalan">
+        </div>
+
+        <div class="filter-group">
+          <label for="publications in Spain (Spanish)">Publications in Spain (Spanish)</label>
+          <input type="text" id="publications in Spain (Spanish)" placeholder="Cerca per publications in Spain (Spanish)">
+        </div>
+
+        <div class="filter-group">
+          <label for="publications in English">Publications in English</label>
+          <input type="text" id="publications in English" placeholder="Cerca per publications in English">
+        </div>
+
+        <div class="filter-group">
+          <label for="publications in German">Publications in German</label>
+          <input type="text" id="publications in German" placeholder="Cerca per publications in German">
+        </div>
+
+        <div class="filter-group">
+          <label for="publications in Russian">Publications in Russian</label>
+          <input type="text" id="publications in Russian" placeholder="Cerca per publications in Russian">
+        </div>
+
+        <div class="filter-group">
+          <label for="publications in French">Publications in French</label>
+          <input type="text" id="publications in French" placeholder="Cerca per publications in French">
+        </div>
+
+        <div class="filter-group">
+          <label for="publications in Italian">Publications in Italian</label>
+          <input type="text" id="publications in Italian" placeholder="Cerca per publications in Italian">
+        </div>
+      </div>
+    </section>
+
+    <section class="table-section">
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr id="tableHeadRow"></tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
