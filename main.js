@@ -4,7 +4,7 @@ const textColumns = [
   { key: "year", label: "Year", csv: "year" },
   { key: "publisher", label: "Publisher", csv: "publisher" },
   { key: "country", label: "Country", csv: "country" },
-  { key: "languageOfPublication", label: "Language of publication", csv: "language of publication" },
+  { key: "languagePublication", label: "Language of publication", csv: "language_publication" },
   { key: "publicationsCatalan", label: "Publications in Catalan", csv: "publications in Catalan" },
   { key: "publicationsSpainSpanish", label: "Publications in Spain (Spanish)", csv: "publications in Spain (Spanish)" },
   { key: "publicationsEnglish", label: "Publications in English", csv: "publications in English" },
@@ -21,9 +21,9 @@ const extraColumns = [
 
 const allColumns = [...textColumns, ...extraColumns];
 
-// Temporary options — replace these later with your real ones
+// Temporary options
 const themeOptions = ["Love", "War", "Identity", "Memory", "Exile"];
-const genreOptions = ["Novel", "Poetry", "Essay", "Drama", "Short Story"];
+const genreOptions = ["Novel", "Poetry", "Essay", "Drama", "Magical Realism"];
 
 let originalData = [];
 let filteredData = [];
@@ -49,7 +49,7 @@ function normalizeValue(value) {
 function parseMultiValueCell(value) {
   if (!value) return [];
   return String(value)
-    .split(/[;,|]/)
+    .split(",")
     .map(item => item.trim())
     .filter(Boolean);
 }
@@ -93,19 +93,13 @@ function buildChipButtons(container, options, type) {
       const normalized = normalizeValue(option);
 
       if (type === "theme") {
-        if (state.activeThemes.has(normalized)) {
-          state.activeThemes.delete(normalized);
-        } else {
-          state.activeThemes.add(normalized);
-        }
+        if (state.activeThemes.has(normalized)) state.activeThemes.delete(normalized);
+        else state.activeThemes.add(normalized);
       }
 
       if (type === "genre") {
-        if (state.activeGenres.has(normalized)) {
-          state.activeGenres.delete(normalized);
-        } else {
-          state.activeGenres.add(normalized);
-        }
+        if (state.activeGenres.has(normalized)) state.activeGenres.delete(normalized);
+        else state.activeGenres.add(normalized);
       }
 
       updateChipStates();
@@ -123,13 +117,8 @@ function updateChipStates() {
 
     let isActive = false;
 
-    if (type === "theme") {
-      isActive = state.activeThemes.has(value);
-    }
-
-    if (type === "genre") {
-      isActive = state.activeGenres.has(value);
-    }
+    if (type === "theme") isActive = state.activeThemes.has(value);
+    if (type === "genre") isActive = state.activeGenres.has(value);
 
     button.classList.toggle("active", isActive);
     button.setAttribute("aria-pressed", isActive ? "true" : "false");
@@ -238,6 +227,7 @@ function loadCsv() {
   Papa.parse("./name.csv", {
     download: true,
     header: true,
+    delimiter: ",",
     skipEmptyLines: true,
     complete: function(results) {
       originalData = results.data.filter(row =>
