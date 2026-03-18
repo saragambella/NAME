@@ -70,7 +70,7 @@ function renderTable(data) {
 
     const td = document.createElement("td");
     td.colSpan = fields.length;
-    td.textContent = "Nessun risultato trovato.";
+    td.textContent = "No results found.";
 
     tr.appendChild(td);
     tableBody.appendChild(tr);
@@ -116,7 +116,7 @@ async function loadData() {
   try {
     const response = await fetch("./data.json");
     if (!response.ok) {
-      throw new Error("Impossibile caricare data.json");
+      throw new Error("Unable to load data.json");
     }
 
     originalData = await response.json();
@@ -126,10 +126,10 @@ async function loadData() {
     console.error(error);
     tableBody.innerHTML = `
       <tr class="empty-row">
-        <td colspan="${fields.length}">Errore nel caricamento del file data.json</td>
+        <td colspan="${fields.length}">Error loading data.json file</td>
       </tr>
     `;
-    resultsCount.textContent = "0 risultati";
+    resultsCount.textContent = "0 results";
   }
 }
 
