@@ -21,7 +21,6 @@ const extraColumns = [
 
 const allColumns = [...textColumns, ...extraColumns];
 
-// Temporary options
 const themeOptions = ["Love", "War", "Identity", "Memory", "Exile"];
 const genreOptions = ["Novel", "Poetry", "Essay", "Drama", "Magical Realism"];
 
@@ -227,7 +226,7 @@ function loadCsv() {
   Papa.parse("./name.csv", {
     download: true,
     header: true,
-    delimiter: ",",
+    delimiter: ";",
     skipEmptyLines: true,
     complete: function(results) {
       originalData = results.data.filter(row =>
@@ -253,7 +252,5 @@ buildTextFilters();
 buildChipButtons(themesButtons, themeOptions, "theme");
 buildChipButtons(genreButtons, genreOptions, "genre");
 buildTableHead();
-
 resetFiltersBtn.addEventListener("click", resetFilters);
-
 loadCsv();
