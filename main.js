@@ -74,7 +74,7 @@ function renderTable(data) {
 
     tr.appendChild(td);
     tableBody.appendChild(tr);
-    resultsCount.textContent = "0 risultati";
+    resultsCount.textContent = "0 results";
     return;
   }
 
@@ -90,7 +90,7 @@ function renderTable(data) {
     tableBody.appendChild(tr);
   });
 
-  resultsCount.textContent = `${data.length} risultati`;
+  resultsCount.textContent = `${data.length} results`;
 }
 
 function attachFilterEvents() {
